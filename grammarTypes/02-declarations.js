@@ -69,11 +69,11 @@ let letVariable = 'let variable'
 */
 
 // Declarations are the LEFT SIDE of the assignment operator
-// let x;
+// * let x;
 
 // Initializations are the RIGHT SIDE of the assignment operator
 
-// let x = 10; // * 10 is the initialization
+// * let x = 10; // 10 is the initialization
 
 let y;
 console.log("declaration:", y);
