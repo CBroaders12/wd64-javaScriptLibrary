@@ -11,7 +11,7 @@
 	- undefined
 	- NaN (Not a Number)
 
-  ~ When JS expects a boolean and receives one of the above it is evaluated as 'falsy'
+	~ When JS expects a boolean and receives one of the above it is evaluated as 'falsy'
 */
 
 /*
@@ -19,7 +19,7 @@
 ! IF
 * *************
 
-    - "If" something is true, do "this thing"
+		- "If" something is true, do "this thing"
 
 */
 
@@ -46,7 +46,7 @@ if (weather < 70 && rain) {
 ! IF ELSE
 * *************
 
-  - If/Else Statements allow us to write out a chain of events
+	- If/Else Statements allow us to write out a chain of events
 */
 
 let today = 75;
@@ -80,7 +80,7 @@ if (name === "Conor") {
 ! ELSE IF
 * **************
 
-  - This is an additional condition to check if the above is not met
+	- This is an additional condition to check if the above is not met
 */
 
 let cookTime = 45;
@@ -102,12 +102,12 @@ if (cookTime === 45) {
 ! CHALLENGE 2:
 * **************
 
-  //todo: Set a variable of age and give it a number of your choice
-  Create an else if statement that checks the following:
-  //todo: If the age is 17 or younger, console.log 'Sorry, you're too young to do anything.'
-  //todo: If the age is at least 18, console.log 'You can vote!'
-  //todo: If the age is at least 21, console.log 'You can drink!'
-  //todo: If the age is at least 25, console.log 'You can rent a car!'
+	//todo: Set a variable of age and give it a number of your choice
+	Create an else if statement that checks the following:
+	//todo: If the age is 17 or younger, console.log 'Sorry, you're too young to do anything.'
+	//todo: If the age is at least 18, console.log 'You can vote!'
+	//todo: If the age is at least 21, console.log 'You can drink!'
+	//todo: If the age is at least 25, console.log 'You can rent a car!'
 
 */
 
@@ -156,15 +156,15 @@ myName === "Conor" ? console.log(`Hello, my name is ${myName}.`) : console.log(`
 let lampOn = false;
 let daytime = true;
 if(lampOn == true && daytime != true) {
-    console.log('The lamp is on during the night')
+		console.log('The lamp is on during the night')
 } else if(lampOn != true && daytime != true) {
-    console.log('The lamp is off during the night')
+		console.log('The lamp is off during the night')
 } else if(lampOn == true && daytime == true){
-    console.log('The lamp is on during the day')
+		console.log('The lamp is on during the day')
 } else if(lampOn != true && daytime == true) {
-    console.log('The lamp is off during the day')
+		console.log('The lamp is off during the day')
 } else {
-    console.log('What lamp?')
+		console.log('What lamp?')
 }
 
 */
@@ -239,3 +239,36 @@ switch (instructor) {
 		console.log(`Sorry, I can't find what ${instructor} teaches at this time.`);
 		break;
 }
+
+//! Challenge 2: Take Home Challenge
+/*  
+Create a switch statement that takes in a value (number) that represents a grade.  If it is True, console log that they are passing with the correct letter grade.
+*   A: 89-100
+*   B: 79-88
+*   C: 66-78
+*   D: 59-65
+*   F: 0-59
+*/
+
+let gradeValue = 87;
+let letterGrade;
+
+switch (true) {
+	case gradeValue >= 89:
+		letterGrade = "A";
+		break;
+	case gradeValue >= 79:
+		letterGrade = "B";
+		break;
+	case gradeValue >= 66:
+		letterGrade = "C";
+		break;
+	case gradeValue >= 59:
+		letterGrade = "D";
+		break;
+	default:
+		letterGrade = "F";
+		break;
+}
+
+console.log(`${gradeValue}: ${letterGrade}`);

@@ -4,9 +4,9 @@
 * ***************
 
 Functions are a process that we call upon to run an action
-  - Take in input so it can process it, modify it, or just respond to it
-  - Returns a value (but not always)
-  - Can be invoked (called upon) as often as we need
+	- Take in input so it can process it, modify it, or just respond to it
+	- Returns a value (but not always)
+	- Can be invoked (called upon) as often as we need
 */
 
 // (1)   (2)
@@ -49,10 +49,37 @@ first();
 // console.log(first);
 
 //? Anonymous Function
-// Anonymous functions are stored in memory but the runtiume doesn't automatically create a reference to it
+// Anonymous functions are stored in memory but the runtime doesn't automatically create a reference to it
 
 let anon = function () {
 	console.log("anon function");
 };
 
 anon();
+
+//? Parameters
+// Allow us to accept information already declared.
+
+function parameterFunc(num) {
+	console.log(num);
+}
+
+parameterFunc(2);
+parameterFunc(9);
+
+let returnedVal = 5;
+parameterFunc(returnedVal);
+
+let firstName = "Jane";
+let lastName = "Doe";
+
+function greeting(first, last) {
+	console.log(`Hi, ${first}! Welcome Back`);
+	console.log(`This is the first parameter: ${first}`);
+	console.log(`This is the last parameter: ${last}`);
+}
+
+//greeting(firstName);
+//greeting(lastName);
+greeting(firstName, lastName);
+
