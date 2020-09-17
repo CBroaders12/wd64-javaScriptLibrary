@@ -12,11 +12,11 @@
 */
 
 for (let i = 0; i <= 10; i++) {
-	console.log(i);
+  console.log(i);
 }
 
 /*
-  - We state out lopp with a "for"
+  - We state out loop with a "for"
   - Within this function, we are injecting some parameters that JS will run against
     - (index; condition; change index -> result)
     ~ for (<create variable>; <run condition>; <change index>) {<return results>}
@@ -38,13 +38,13 @@ for (let i = 0; i <= 10; i++) {
 */
 
 for (let i = 2; i > -10; i -= 4) {
-	console.log(i);
+  console.log(i);
 }
 
 let word = "supercalifragilisticexpialidocious";
 
 for (let i = 0; i < word.length; i++) {
-	console.log(`${i}: ${word[i]}`);
+  console.log(`${i}: ${word[i]}`);
 }
 
 /*
@@ -54,14 +54,14 @@ for (let i = 0; i < word.length; i++) {
 */
 
 let city = {
-	name: "Indianapolis",
-	pop: 877000,
-	speedway: true,
+  name: "Indianapolis",
+  pop: 877000,
+  speedway: true,
 };
 
 for (info in city) {
-	console.log(info);
-	console.log(city[info]);
+  console.log(info);
+  console.log(city[info]);
 }
 
 /*
@@ -73,8 +73,8 @@ for (info in city) {
 let list = ["milk", "eggs", "beans", "bread", "bananas"];
 
 for (item in list) {
-	// console.log(item);
-	console.log(list[item]);
+  // console.log(item);
+  console.log(list[item]);
 }
 
 /*
@@ -108,8 +108,8 @@ let fullName;
 // }
 
 for (char in name) {
-	console.log(typeof char);
-	char == 0 ? (fullName = name[char].toUpperCase()) : (fullName += name[char].toLowerCase());
+  console.log(typeof char);
+  char == 0 ? (fullName = name[char].toUpperCase()) : (fullName += name[char].toLowerCase());
 }
 
 // ! FOR-IN loops for strings evaluate the variable as an index, not a string
@@ -138,7 +138,7 @@ console.log(fullName);
 let indexArr = ["spot 1", 2, true, "four"];
 
 for (pos of indexArr) {
-	console.log(pos);
+  console.log(pos);
 }
 
 /*
