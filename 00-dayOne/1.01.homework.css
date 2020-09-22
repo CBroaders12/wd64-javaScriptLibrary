@@ -1,0 +1,28 @@
+table {
+    background-color: black;
+    /* border: 1px black solid; */
+    margin: auto;
+}
+
+td,
+th {
+    /* border: 1px solid black; */
+    padding: 0.5em;
+    text-align: center;
+}
+
+th {
+    background: linear-gradient(rgb(51, 177, 255), lightskyblue, rgb(51, 177, 255));
+}
+
+td {
+    background-color: lightskyblue;
+}
+
+.align {
+    text-align: center;
+}
+
+.movies {
+    font-style: italic;
+}

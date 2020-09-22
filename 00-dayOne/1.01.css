@@ -1,0 +1,45 @@
+body {
+    background-color: #a8a8a8;
+    padding: 1em;
+    font-family: 'Gill Sans', "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#mainTitle {
+    text-align: center;
+}
+
+.main h1 {
+    text-align: center;
+    color: lightgreen;
+    width: 100%;
+}
+
+.main h3 {
+    color: blue;
+}
+
+.main p {
+    color: red;
+}
+
+.main {
+    border: solid thick black;
+    border-radius: 2em;
+    background-color: grey;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.factoid {
+    display: inline-flexbox;
+    width: 30%;
+    height: auto;
+    border: medium black solid;
+    border-radius: 1em;
+    margin: 0.25em;
+    padding: 1em;
+    background-color: lightgray;
+    text-align: center;
+}
