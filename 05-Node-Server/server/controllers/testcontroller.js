@@ -1,54 +1,125 @@
 let express = require('express');
 let router = express.Router();
+let TestModel = require('../models/test');
 
-const contact = {
-  user: 'CBroaders12',
-  email: 'conor.broaders@gmail.com'
-};
+/******************************
+ * ! Controller Method #1: Simple Response
+ ******************************/
 
-let projects = [
-  'Project 1',
-  'Project 2',
-  'Project 3'
-];
-
-let myContacts = [
-  {
-    user: 'a',
-    email: 'a@test.com'
-  },
-  {
-    user: 'b',
-    email: 'b@test.com'
-  },
-  {
-    user: 'c',
-    email: 'c@test.com'
-  },
-  {
-    user: 'd',
-    email: 'd@test.com'
-  },
-];
-
-router.get('/', (req, res) => {
-  res.send('Hey!!! This is a test route!');
+router.post('/one', (req, res) => {
+  res.send("Test 1 went through!");
 });
 
-router.get('/about', (req, res) => {
-  res.send('Here is my about root. If you see this, you did it right. Huzzah!');
+/******************************
+ * ! Controller Method #2: Persisting Data
+ ******************************/
+
+router.post('/two', (req, res) => {
+  let testData =  "Test data for endpoint two";
+
+  TestModel
+    .create({
+      testdata: testData
+    }).then(dataFromDatabase => {
+      res.send("Test two went through!")
+    })
 });
 
-router.get('/contact', (req, res) => {
-  res.send(contact);
+/******************************
+ * ! Controller Method #3: req.body
+ ******************************/
+
+router.post('/three', (req, res) => {
+  let testData = req.body.testdata.item;
+
+  TestModel
+    .create({
+      testdata: testData
+    })
+  res.send("Test three went through!")
+  console.log("Test three went through!");
 });
 
-router.get('/projects', (req, res) => {
-  res.send(projects);
+/******************************
+ * ! Controller Method #4
+ ******************************/
+
+ router.post('/four', (req, res) =>  {
+   let testData = req.body.testdata.item;
+
+   TestModel
+    .create({
+      testdata: testData
+    })
+    .then(
+      () => {
+        res.send("Test 4 went through!")
+      }
+    )
+ })
+
+/******************************
+ * ! Controller Method #5: Return data in a promise
+ ******************************/
+
+router.post('/five', (req, res) => {
+  let testData = req.body.testdata.item;
+
+  TestModel
+    .create({
+      testdata: testData
+    })
+    .then(data => {
+      res.send(data);
+      })
+})
+
+/******************************
+ * ! Controller Method #6: Return response as JSON
+ ******************************/
+
+router.post('/six', (req, res) => {
+  let testData = req.body.testdata.item;
+
+  TestModel
+    .create({
+      testdata: testData
+    })
+    .then(testdata => {
+      res.json({
+        testdata: testdata
+      });
+    });
 });
 
-router.get('/mycontacts', (req, res) => {
-  res.send(myContacts);
+/******************************
+ * ! Controller Method #7: Handle Errors
+ ******************************/
+
+router.post('/seven', (req, res) => {
+  let testData = req.body.testdata.item;
+
+  TestModel
+    .create({
+      testdata: testData
+    })
+    .then(
+      function createSuccess(testdata) {
+      res.json({
+        testdata: testdata
+      });
+    },
+    function createError(err) {
+      res.send(500, err.message);
+    }
+    );
 });
+
+/******************************
+ * ! GET: Get simple message from the server
+ ******************************/
+router.get('/helloclient', (req, res) => {
+  res.send("This is a message from the server to the client.")
+})
 
 module.exports = router;

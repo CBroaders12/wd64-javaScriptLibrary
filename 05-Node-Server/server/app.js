@@ -1,14 +1,27 @@
-let express = require('express');
-let app = express();
+require('dotenv').config();
+
+const Express = require('express');
+const app = Express();
 let test = require('./controllers/testcontroller');
+let user = require('./controllers/usercontroller')
 let sequelize = require('./db');
 
-sequelize.sync();
+app.use(Express.json());
 
-app.use('/test', test)
+app.use(require('./middleware/headers'));
+app.use('/test', test);
+app.use('/api/user', user);
 
-app.listen(3000, () => console.log('What\'s up!'));
+sequelize.authenticate()
+  .then(
+    () => sequelize.sync()
+  )
+  .then(
+    () =>
+      app.listen(3000, () => {
+        console.log('Listening on Port 3000');
+      })
+  )
+  .catch(e => console.log(e));
 
-app.use('/api/test', (req, res) => {
-  res.send("this is data from the /api/test endpoint. It's from the server.")
-});
+
