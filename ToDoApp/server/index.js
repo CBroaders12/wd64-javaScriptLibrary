@@ -6,6 +6,8 @@ const applicationControllers = require('./controllers/index');
 
 const expressApplicationObject = new Express();
 
+expressApplicationObject.use(Express.json())
+
 expressApplicationObject.use('/test', applicationControllers.test);
 expressApplicationObject.use('/users', applicationControllers.users);
 
@@ -31,15 +33,13 @@ expressApplicationObject.get('/', (request, response) => {
 
 // * ********** - CHALLENGE CODE HERE - ************
 
-expressApplicationObject.use(Express.json())
+// expressApplicationObject.post('/challenge', (request, response) => {
+//   let name = request.body.name;
+//   let age = request.body.age;
 
-expressApplicationObject.post('/challenge', (request, response) => {
-  let name = request.body.name;
-  let age = request.body.age;
-
-  console.log(request);
-  response.send(`${name}, you ${age >= 18 ? 'are an adult!' : 'will be an adult soon!'}`)
-});
+//   console.log(request);
+//   response.send(`${name}, you ${age >= 18 ? 'are an adult!' : 'will be an adult soon!'}`)
+// });
 
 // * **********************
 
@@ -54,7 +54,8 @@ expressApplicationObject.post('/challenge', (request, response) => {
 // Synchronize the Database with our Models
 // Listen on our specified port
 
-applicationSequelizeObject.authenticate()
+applicationSequelizeObject
+  .authenticate()
   .then(() => applicationSequelizeObject.sync())
   .then(() => {
     expressApplicationObject.listen(9001, () => {

@@ -10,6 +10,26 @@ router.post('/one', (req, res) => {
   res.send("Test 1 went through!");
 });
 
+/***************
+ * ? GET: /one
+ ***************/
+router.get('/one', (req, res) => {
+  TestModel
+    .findAll({
+      attributes: ['id', 'testdata']
+    })
+    .then(
+      function findAllSuccess(data) {
+        console.log("Controller data:", data);
+        res.json(data);
+      },
+      function findAllError(err) {
+        res.send(500, err.message)
+      }
+    );
+});
+
+
 /******************************
  * ! Controller Method #2: Persisting Data
  ******************************/
