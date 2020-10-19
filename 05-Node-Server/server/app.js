@@ -2,9 +2,10 @@ require('dotenv').config();
 
 const Express = require('express');
 const app = Express();
+
+// CONTROLLERS
 const test = require('./controllers/testcontroller');
 const authTest = require('./controllers/authtestcontroller');
-
 const user = require('./controllers/usercontroller');
 const sequelize = require('./db');
 
@@ -19,7 +20,7 @@ app.use('/test', test);
 app.use('/api/user', user);
 
 /******************
- * ! EXPOSED ROUTES
+ * ! AUTHENTICATED ROUTES
 *******************/
 app.use(require('./middleware/validate-session'));
 app.use('/authtest', authTest)
