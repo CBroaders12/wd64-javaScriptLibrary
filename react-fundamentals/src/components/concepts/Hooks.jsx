@@ -31,7 +31,7 @@ const useNumHook = (num) => {
   useEffect(() => {
     if(queryNum !== '') {
       fetch(`http://numbersapi.com/${queryNum}`)
-        .then(response => response.json())
+        .then(response => response.text())
         .then(json => {
           setResults(json);
           console.log(json);
@@ -42,5 +42,37 @@ const useNumHook = (num) => {
   return [results, queryNum, setQueryNum];
 }
 
-export default Hooks;
+const useNumTitleHook = (num) => {
+  const [ numClicks, setNumClicks ] = useState(num);
+
+  useEffect(() => {
+    if(numClicks !== 0) {
+      document.title = `You have clicked ${numClicks} times`
+    }
+  }, [numClicks])
+
+  return [ numClicks, setNumClicks ];
+}
+
+const Hooks2 = () => {
+  const [ results, queryNum, setQueryNum ] = useNumHook('');
+  const [ numClicks, setNumClicks ] = useNumTitleHook(0);
+  
+  return(
+    <div className="main">
+      <div className="mainDiv">
+        <h3>Enter a number below to see a number fact</h3>
+        <input value={queryNum} onChange={e => setQueryNum(e.target.value)} placeholder="enter a number" />
+        {results ? <h2>{results}</h2> : <div></div>}
+        <button onClick={() => setNumClicks(numClicks + 1)}>Click me to update the Document Title</button>
+      </div>
+    </div>
+  );
+};
+
+
+
+export default Hooks2;
+
+
 
