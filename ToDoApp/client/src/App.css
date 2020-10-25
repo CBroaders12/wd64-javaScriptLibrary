@@ -2,3 +2,10 @@
 	max-width: 400px;
 	margin: auto;
 }
+
+.authForm {
+	max-width: 400px;
+	margin: auto;
+	padding: 1.5rem;
+	border-top: #6c757d solid 0.5rem;
+}

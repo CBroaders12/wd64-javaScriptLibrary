@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Button, Col, Form, FormGroup, Label, Input } from "reactstrap";
 
+import "../styles/Login.css";
+
 // TODO: Build functionality to send information to the API
 
 const LoginComponent = (props) => {
@@ -43,25 +45,17 @@ const LoginComponent = (props) => {
   }
 
   return(
-    <Form className="my-5" onSubmit={handleLoginSubmit}>
+    <Form className="authForm" id="loginForm" onSubmit={handleLoginSubmit}>
       <h3>Login</h3>
-      <FormGroup row className="mb-2">
+      <FormGroup>
         <Label htmlFor="loginEmail" sm={{size: 2}}>Email</Label>
-        <Col>
-          <Input onChange={triggerEmailInputChange} value={email} type="email" name="email" id="loginEmail" placeholder="example@email.com"></Input>
-        </Col>
+        <Input onChange={triggerEmailInputChange} value={email} type="email" name="email" id="loginEmail" placeholder="example@email.com"></Input>
       </FormGroup>
-      <FormGroup row className="mb-2">
-      <Label htmlFor="loginPassword" sm={{size: 2}}>Password</Label>
-      <Col>
+      <FormGroup>
+        <Label htmlFor="loginPassword" sm={{size: 2}}>Password</Label>
         <Input onChange={triggerPasswordInputChange} value={password} type="password" name="password" id="loginPassword" placeholder="password"></Input>
-      </Col>
       </FormGroup>
-      <FormGroup check row>
-        <Col sm={{size: 7, offset: 5}}>
-          <Button color="primary" sub>Login</Button>
-        </Col>
-      </FormGroup>
+      <Button>Login</Button>
     </Form>
   );
 };
